@@ -3,7 +3,7 @@ import Navbar from '../component/navbar';
 function MyApp({ Component, pageProps }) {
   return <> 
    <Navbar/>
-   <Component {...pageProps} /></>
+   <Component {...pageProps} />
+   </>
 }
-
 export default MyApp

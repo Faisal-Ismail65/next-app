@@ -1,25 +1,28 @@
-import React from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+import React,{useState} from 'react'
 import styles from '../styles/Blog.module.css'
 import Link from 'next/link'
-const blog = () => {
-  return (
+const blog = (props) => {
+  const [blogs, setblogs] = useState(props.allBlogs);
+  return <div className={styles.container}>
     <main className={styles.main}>
-    <div className="blogs">
-          <div className={styles.blogItem}>
-            <Link href={'/blogpost/learn javascript'}><h3>How to learn Javascript in 2022?</h3></Link>
-            <p>Javascript is the language used to design logic for web</p>
-          </div>
-          <div className={styles.blogItem}>
-            <h3>How to learn Javascript in 2022?</h3>
-            <p>Javascript is the language used to design logic for web</p>
-          </div>
-          <div className={styles.blogItem}>
-            <h3>How to learn Javascript in 2022?</h3>
-            <p>Javascript is the language used to design logic for web</p>
-          </div>
-        </div>
-        </main>
-  )
+    {blogs.map((blogitem)=>{
+      return <div key={blogitem.slug}>
+        <Link href={`/blogpost/${blogitem.slug}`}>
+          <h2>{blogitem.title}</h2></Link>
+          <p>{blogitem.content.substr(0,100)}...</p>
+      </div>
+
+    })}
+    </main>
+  </div>
+};
+export async function getServerSideProps(context) {
+let data = await  fetch('http://localhost:3000/api/blogs');
+let allBlogs = await data.json();
+  return {
+    props : {allBlogs}
+  }
 }
 
-export default blog
+export default blog;

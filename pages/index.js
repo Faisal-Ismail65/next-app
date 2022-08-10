@@ -13,7 +13,7 @@ export default function Home() {
        </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>   
-          <span>Hunting Coder</span>
+          <span>&lt;Hunting Coder/&gt;</span>
         </h1>  
         <div className={styles.imagewrap}>
         <Image className={styles.homeimage} src={homeimage} alt = "coder image" height={345.6} width={518.4}></Image>
@@ -21,21 +21,6 @@ export default function Home() {
         <p className={styles.description}>
           A blog for hunting Coders by A hunting Coder
         </p>
-        <div className="blogs">
-          <h2>Popular Blogs</h2>
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2022?</h3>
-            <p>jJavascript is the language used to design logic for web</p>
-          </div>
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2022?</h3>
-            <p>jJavascript is the language used to design logic for web</p>
-          </div>
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2022?</h3>
-            <p>jJavascript is the language used to design logic for web</p>
-          </div>
-        </div>
       </main>
 
       <footer className={styles.footer}>
